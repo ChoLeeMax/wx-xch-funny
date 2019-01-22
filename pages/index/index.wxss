@@ -1,21 +1,60 @@
 /**index.wxss**/
 .userinfo {
-  display: flex;
-  flex-direction: column;
+   display: flex;/**弹性布局**/
+  flex-direction: column;/**元素排列方向**/
+  /**让元素垂直上下排列，row:元素水平排列123，row-reverse:水平方向排列321**/
+  justify-content:center;/*元素排列**/
+  /**子元素水平居中；flex-start:水平靠左，flex-end:水平靠右排列， **/
+  /**space-around;每个元素两侧的间隔相等，space-between;左右开始排列，中间间距相等**/
   align-items: center;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.l{
+  border: 1rpx solid #fff;
+}
+.center{
+  text-align: center;
+  margin: auto 0;
+}
+.hor{
+  display: flex;
+}
+ 
+.fz40{
+  font-size: 40rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
-}
+/**index css**/
+.weathPanel{
+   position: absolute;
+   top: 0;
+   height: 350rpx;
+   width:100%;
+   color:#FFF;
+   font-size:30rpx;
 
-.usermotto {
-  margin-top: 200px;
+}
+.bg {
+  width: 100%;
+  height: 350rpx;
+}
+.temp{
+  font-size: 60rpx;
+}
+.nowInfo{
+  padding: 30rpx;
+}
+ 
+.detail{
+  width: 100%;
+  display: flex;
+  margin-top:20rpx;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.forcast{
+  padding: 30rpx;
+  margin-left: 16rpx;
+  margin-right: 16rpx;
+  border-bottom: 1rpx solid #eee;
+  justify-content: space-around;
 }

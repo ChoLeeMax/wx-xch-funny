@@ -5,6 +5,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  padding: 0;
   box-sizing: border-box;
 } 
+.png48{
+  width: 48px;
+  height: 48px
+}
+.png32{
+  width: 64rpx;
+  height: 64rpx
+}
+.png24{
+  width: 48rpx;
+  height: 48rpx
+}
+.fr{
+  float:right;
+
+}
+.fz40{
+  font-size: 40rpx;
+}.w{
+  color: white;
+}
+.b{
+  font-weight: bold;
+}

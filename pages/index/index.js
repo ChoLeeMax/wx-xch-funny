@@ -4,51 +4,74 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    location:"",
+    tmp:"",
+    txt: "",
+    qlty: "优良",
+    wind_dir: "",
+    wind_sc: "",
+    hum: "",
+    lifeStyle: ""
+  }, 
+  refreshData:function(){
+    this.getLocation();
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+    this.getLocation();
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+  getLocation:function(){
+    var that = this;
+    wx.getLocation({
+      type: 'wgs84',
+      altitude: true,
+      success: function (res) {
+        console.log(res);
+        var lat= res.latitude;
+        var lng = res.longitude;
+        that.getLocCity(lat, lng);
+      }, 
+      fail: function (res) {
+        console.log('fail:'+JSON.stringify(res));
+      }
     })
-  }
+  },
+  getLocCity: function (lat, lng){
+    var that = this;
+        var _url ="https://free-api.heweather.net/s6/weather";
+        var _data={
+          lang:"cn",
+          location: lat+','+lng,
+          key:'7d4883c5e452421488debab9be7dd81f'
+        };
+    wx.showLoading({
+      title: '加载中',
+    })
+         wx.request({
+           url: _url,
+           data: _data,
+           method: 'GET',
+           dataType: 'json',
+           success: function(res) {
+             console.log(res);
+             wx.hideLoading();
+             var item = res.data.HeWeather6[0];
+             if (res.statusCode == '200' && item){
+               var tepArr = item.lifestyle.filter(function (obj) {
+                 return obj.type ==="sport";
+               });
+               that.setData({
+                 location: item.basic.parent_city,
+                 tmp: item.now.tmp,
+                 txt: item.now.cond_txt,
+                 wind_dir: item.now.wind_dir,
+                 wind_sc: item.now.wind_sc,
+                 hum: item.now.vis,
+                 level: tepArr[0]["brf"]
+               });
+             }else{
+
+             }
+           }
+         })
+  },
 })
