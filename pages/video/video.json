@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "查看启动日志"
+  "navigationBarTitleText": "搞笑视频",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#EB4F38"
 }

@@ -1,0 +1,21 @@
+<!-- <loading hidden="{{loadingHidden}}">正在加载...</loading> -->
+<scroll-view scroll-y="true" bindscrolltoupper="scrolltoupper" bindscrolltolower="scrolltolower" style="height: 100%" upper-threshold="100" >
+<!-- 属性值:允许纵向滚动，滚动到顶部出发事件，滚动到底部出发事件 -->
+<block wx:for-items="{{list}}">
+<!-- 顶部分割线 -->
+<view class='divLine'></view>
+<!-- 段子容器 -->
+<view class='divContent'>
+<!-- 头像昵称 -->
+  <view class='userContent'>
+    <image class='png32 circle' src='{{item.profile_image}}'></image>
+    <view class='uesrInfo'>
+       <text class='userName'>{{item.name}}</text>  
+       <text class='infoTime'>{{item.created_at}}</text>
+    </view>
+  </view>
+  <!-- 段子文字部分 -->
+  <view class='textContent'>{{item.text}}</view>
+</view>
+</block>
+</scroll-view>

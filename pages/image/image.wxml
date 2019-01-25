@@ -1,0 +1,34 @@
+<!-- <loading hidden="{{loadingHidden}}">正在加载...</loading> -->
+<scroll-view scroll-y="true" bindscrolltoupper="scrolltoupper" bindscrolltolower="scrolltolower" style="height: 100%" upper-threshold="100">
+  <!-- 属性值:允许纵向滚动，滚动到顶部出发事件，滚动到底部出发事件 -->
+  <block wx:for-items="{{list}}" wx:key="item">
+    <!-- 顶部分割线 -->
+    <view class='divLine'></view>
+    <!-- 段子容器 -->
+    <view class='divContent'>
+      <!-- 头像昵称 -->
+      <view class='userContent'>
+        <image class='png32 circle' src='{{item.profile_image}}'></image>
+        <view class='uesrInfo'>
+          <text class='userName'>{{item.name}}</text>
+          <text class='infoTime'>{{item.created_at}}</text>
+        </view>
+      </view>
+      <!-- 段子文字部分 -->
+      <view class='textContent'>{{item.text}}</view>
+      <!-- gif图 -->
+      <view wx:if="{{item.is_gif != 0}}" class='imgContent'>
+        <image class="centerContent" src="{{item.cdn_img}}" style='height:{{item.height}}px;width:{{item.width}}px' mode="aspectFill" />
+      </view>
+      <view wx:elif="{{item.is_gif == 0}}" 
+      class="imgContent">
+        <image class="centerContent" src="{{item.cdn_img}}" mode="aspectFill"/>
+        <!-- 查看大图 -->
+        <view class="flexView" wx:if="{{item.height>=400}}" bindtap="largerImg" data-url="{{item.cdn_img}}" data-height="{{item.height}}" data-width="{{item.width}}">
+          <image src="./img/lager.png" style="width: 48rpx; height: 48rpx;" />
+          <text class="flexText">查看大图</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>

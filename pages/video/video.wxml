@@ -1,6 +1,22 @@
-<!--logs.wxml-->
-<view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
-</view>
+<!-- 属性值:允许纵向滚动，滚动到顶部出发事件，滚动到底部出发事件 -->
+<block wx:for-items="{{list}}" wx:key="item">
+  <!-- 顶部分割线 -->
+  <view class='divLine'></view>
+  <!-- 段子容器 -->
+  <view class='divContent'>
+    <!-- 头像昵称 -->
+    <view class='userContent'>
+      <image class='png32 circle' src='{{item.profile_image}}'></image>
+      <view class='uesrInfo'>
+        <text class='userName'>{{item.name}}</text>
+        <text class='infoTime'>{{item.created_at}}</text>
+      </view>
+    </view>
+    <!-- 段子文字部分 -->
+    <view class='textContent'>{{item.text}}</view>
+    <!-- 视频组件 -->
+    <view class='imgContent'>
+      <video src="{{item.videouri}}" poster="{{item.image_small}}" id='video{{index+1}}' data-index='{{index+1}}' bindplay="toPlay" binderror="error" objectFit="cover" duration="{{item.videotime-4}}" bindtimeupdate="timeUpdate"/>
+    </view>
+  </view>
+</block>

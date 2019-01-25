@@ -1,13 +1,15 @@
 {
+
   "pages": [
     "pages/index/index",
-    "pages/duanzi/duanzi",
-    "pages/music/music",
+    "pages/text/text",
+    "pages/image/image",
+    "pages/detail/detail",
     "pages/video/video"
   ],
   "tabBar": {
     "color": "#a9b7b7",
-    "selectedColor": "#FF8888",
+    "selectedColor": "#EB4F38",
     "borderStyle": "white",
     "list": [{
       "pagePath": "pages/index/index",
@@ -15,15 +17,15 @@
       "iconPath":"imageTab/index.png",
       "selectedIconPath":"imageTab/index-sel.png"
     }, {
-      "pagePath": "pages/duanzi/duanzi",
+      "pagePath": "pages/text/text",
       "text": "段子",
-      "iconPath": "imageTab/duanzi.png",
-      "selectedIconPath": "imageTab/duanzi-sel.png"
+      "iconPath": "imageTab/text.png",
+      "selectedIconPath": "imageTab/text-sel.png"
     } , {
-      "pagePath": "pages/music/music",
-      "text": "音乐",
-      "iconPath": "imageTab/music.png",
-      "selectedIconPath":"imageTab/music-sel.png"
+      "pagePath": "pages/image/image",
+      "text": "图片",
+      "iconPath": "imageTab/pic.png",
+      "selectedIconPath":"imageTab/pic-sel.png"
     } , {
       "pagePath": "pages/video/video",
       "text": "视频",
@@ -32,9 +34,10 @@
     }]
   },
   "window": {
+
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "cholee",
+    "navigationBarTitleText": "李超个人小程序",
     "navigationBarTextStyle": "black"
   }
 }

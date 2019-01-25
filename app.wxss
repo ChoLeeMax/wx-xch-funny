@@ -1,4 +1,10 @@
 /**app.wxss**/
+page{
+  height: 100%;
+}
+.circle{
+border-radius:50%;
+}
 .container {
   height: 100%;
   display: flex;
@@ -8,6 +14,7 @@
   padding: 0;
   box-sizing: border-box;
 } 
+/* 图片大小样式 */
 .png48{
   width: 48px;
   height: 48px
@@ -20,15 +27,68 @@
   width: 48rpx;
   height: 48rpx
 }
+/* 文字大小样式 */
 .fr{
   float:right;
 
 }
+.fz30{
+  font-size: 30rpx;
+}
 .fz40{
   font-size: 40rpx;
-}.w{
+}
+.w{
   color: white;
 }
 .b{
   font-weight: bold;
+}
+/* 分割线 */
+.divLine{
+  background: #f3f3f3;
+  width: 100%;
+  height: 15rpx;
+}
+/*整体view样式*/
+.divContent{
+  padding: 15rpx 15rpx 15rpx 15rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  background-color: white;
+}
+/* 昵称显示区 */
+.userContent{
+  display: flex;
+  flex-direction: row;/* 水平排列 */
+  align-items: center;
+  margin-bottom: 18rpx;
+}
+/*头部显示名字和时间整体样式*/
+.uesrInfo{
+  margin-left: 15rpx;
+  display: flex;
+  flex-direction: column;
+}
+.uesrInfo .userName{
+  font-size: 24rpx;
+}
+.uesrInfo .infoTime{
+  font-size: 20rpx;
+  color: #b8b2b2;
+  margin-top: 10rpx;
+}
+/* 段子内容样式 */
+.textContent{
+  font-size:30rpx ;
+  text-indent: 60rpx;
+  text-align: left;
+}
+/* 图片承载容器 */
+.imgContent{
+  position:relative;
+margin-top:15rpx;
+justify-content:center;
+display:flex;
+
 }

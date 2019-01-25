@@ -43,9 +43,9 @@ Page({
           location: lat+','+lng,
           key:'7d4883c5e452421488debab9be7dd81f'
         };
-    wx.showLoading({
-      title: '加载中',
-    })
+          wx.showLoading({
+            title: '加载中',
+          })
          wx.request({
            url: _url,
            data: _data,
@@ -68,8 +68,6 @@ Page({
                  hum: item.now.vis,
                  level: tepArr[0]["brf"]
                });
-             }else{
-
              }
            }
          })
