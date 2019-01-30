@@ -1,6 +1,6 @@
 /**index.wxss**/
 .userinfo {
-   display: flex;/**弹性布局**/
+  display: flex;/**弹性布局**/
   flex-direction: column;/**元素排列方向**/
   /**column:让元素垂直上下排列，row:元素水平排列123，row-reverse:水平方向排列321**/
   justify-content:center;/*元素排列**/
@@ -57,4 +57,9 @@
   margin-right: 16rpx;
   border-bottom: 1rpx solid #eee;
   justify-content: space-around;
+}
+.city{
+display:flex;
+flex-direction:row;
+
 }

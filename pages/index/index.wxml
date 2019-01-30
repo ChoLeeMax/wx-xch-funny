@@ -1,10 +1,13 @@
 <!--index.wxml-->
 <view class="container">
    <image class='bg' mode="" src='./icon/weather-bg.jpg' ></image>
-   <view class='weathPanel'>
+   <view class='weathPanel'> 
     <view class="nowInfo">
       <image class='png24 fr' mode="scaleToFill" bindtap="refreshData" src='./icon/refresh.png'></image>
-      <view class="city">{{location}}</view>
+      <view class="city">
+         <image mode="aspectFill" style='height:40rpx;width:40rpx;' src='./icon/location.png'></image>
+         <text>{{location}}</text>
+      </view>
       <view class="temp">{{tmp}}℃</view>
       <view class="weather">{{txt}} | 空气 {{qlty}}</view>
     </view>
